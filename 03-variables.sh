@@ -2,8 +2,8 @@
 
 #This is all about use of variables, first file
 
-PERSON1=Ramesh
-PERSON2=Suresh
+PERSON1=Raja
+PERSON2=Devansh
 
 echo "$PERSON1 :: Hi $PERSON2, how are you?"
 echo "$PERSON2 :: Hi $PERSON1, I am fine, how are you?"
