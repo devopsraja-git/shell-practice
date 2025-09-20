@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# everything in shell is integers
+# shell automatically detects & converts data types whether its integer or alphabets or decimal or long etc...
 NUMBER1=100
 NUMBER2=200
-NAME=raja
+NAME=raja 
 
 SUM=$(($NUMBER1+$NUMBER2+$NAME))
 
