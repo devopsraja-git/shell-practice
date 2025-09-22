@@ -14,7 +14,7 @@ uid=$(id -u)
 
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p $LOGS_FOLDER
 echo "Script started executed at $(date)"
@@ -33,23 +33,23 @@ else
 fi
 }
 
-dnf list installed mysql -y &>> $LOG_FILE
+dnf list installed mysql -y &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install mysql -y &>> $LOG_FILE
+    dnf install mysql -y &>>$LOG_FILE
     validate $? "mySQL"
 else
     echo -e "mySQL is already exists....$Y SKIPPING... $N"
 fi
-dnf list installed nginx -y &>> $LOG_FILE
+dnf list installed nginx -y &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install nginx -y &>> $LOG_FILE
+    dnf install nginx -y &>>$LOG_FILE
     validate $? "Nginx"
 else
     echo -e "Nginx is already exists...$Y SKIPPING... $N"
 fi
-dnf list installed python3 -y &>> $LOG_FILE
+dnf list installed python3 -y &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install python -y &>> $LOG_FILE
+    dnf install python -y &>>$LOG_FILE
     validate $? "python3"
 else
     echo -e "Python is already existing... $Y SKIPPING...$N"
