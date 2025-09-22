@@ -12,16 +12,16 @@ N="\e[0m"
 uid=$(id -u)
 
 if [ $uid -ne 0 ]; then
-    echo "ERROR:: Please run this as a $G ROOT $N User Privileges only"
+    echo -e "ERROR:: Please run this as a $G ROOT $N User Privileges only"
     exit 1
 fi
 
 validate(){
     if [ $1 -ne 0 ]; then
-    echo "ERROR:: Installation of $2 is $R FAILED $N"
+    echo -e "ERROR:: Installation of $2 is $R FAILED $N"
     exit 1
 else
-    echo "Installation of $2 is $G SUCCESSFUL $N"
+    echo -e "Installation of $2 is $G SUCCESSFUL $N"
 fi
 }
 
@@ -37,12 +37,12 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y
     validate $? "Nginx"
 else
-    echo "Nginx is already exists...$Y SKIPPING... $N"
+    echo -e "Nginx is already exists...$Y SKIPPING... $N"
 fi
 dnf list installed python3 -y
 if [ $? -ne 0 ]; then
     dnf install python -y
     validate $? "python3"
 else
-    echo "Python is already existing... $Y SKIPPING...$N"
+    echo -e "Python is already existing... $Y SKIPPING...$N"
 fi
