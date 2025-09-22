@@ -17,7 +17,6 @@ validate(){
         exit 1
     else
         echo "Installation of $2 is SUCCESSFUL"
-        exit 0
     fi
 }
 
