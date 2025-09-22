@@ -1,20 +1,21 @@
 #!/bin/bash
 
-# Identify Primer numbers
+# Identify Prime numbers
 
-echo "Please enter the number: "
-read NUMBER
+echo "Please enter your number: "
+read num
 
-if [ $NUMBER -lt 1 ]; then
-    echo "Given number  $NUMBER is not a PRIME Number"
-elif [ $NUMBER -eq 2 ]; then
-    echo "Given number $NUMBER is a PRIME Number"
-elif [ $NUMBER -eq 3 ]; then
-    echo "Given number $NUMBER is a PRIME Number"
-elif [ $(($NUMBER % 2)) -eq 0 ]; then
-    echo "Given number $NUMBER is not a PRIME Number"
-elif [ $(($NUMBER % 3)) -eq 0 ]; then
-    echo "Given number $NUMBER is not a PRIMER Number"
+echo "Given number is: $num"
+if [ $num -lt 1 ]; then
+    echo "$num is not a PRIME Number"
+elif [ $num -eq 2 ]; then
+    echo "$num is a PRIME Number"
+elif [ $num -eq 3 ]; then
+    echo "$num is a PRIME Number"
+elif [ $(($num % 2)) -eq 0 ]; then
+    echo "$num is not a PRIME Number"
+elif [ $(($num % 3)) -eq 0 ]; then
+    echo "$num is not a PRIME Number"
 else
-    echo "Given number $NUMBER is a PRIMER Number"
+    echo "$num is a PRIME Number"
 fi
