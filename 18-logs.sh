@@ -38,19 +38,19 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y
     validate $? "mySQL"
 else
-    echo -e "mySQL is already exists....$Y SKIPPING... $N" &>> $LOG_FILE
+    echo -e "mySQL is already exists....$Y SKIPPING... $N"
 fi
 dnf list installed nginx -y &>> $LOG_FILE
 if [ $? -ne 0 ]; then
     dnf install nginx -y
     validate $? "Nginx"
 else
-    echo -e "Nginx is already exists...$Y SKIPPING... $N" &>> $LOG_FILE
+    echo -e "Nginx is already exists...$Y SKIPPING... $N"
 fi
 dnf list installed python3 -y &>> $LOG_FILE
 if [ $? -ne 0 ]; then
     dnf install python -y
     validate $? "python3"
 else
-    echo -e "Python is already existing... $Y SKIPPING...$N" &>> $LOG_FILE
+    echo -e "Python is already existing... $Y SKIPPING...$N"
 fi
