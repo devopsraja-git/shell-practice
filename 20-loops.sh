@@ -36,5 +36,4 @@ fi
 for package in $@
 do
     echo "Package name is: $package"
-
 done
