@@ -1,5 +1,9 @@
 #!/bin/bash
 
 echo "Hello World!"
+
+echo "before error..."
+
 dfasdfasd
-echo "How is the world"
+
+echo "after error.."
