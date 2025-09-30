@@ -46,8 +46,12 @@ FILES=$(find /home/ec2-user/app-logs/ -name "*.log" -type f -mtime +14)
 
 
 if [ ! -z ${FILES} ]; then
-    echo "Files found"
+    echo "Files found $FILES"
+    TIME_STAMP=$(date +%F)
+    ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIME_STAMP.zip"
+    echo "Zip file name: $ZIP_FILE_NAME"
+    echo $FILES | zip  -@ -j "$ZIP_FILE_NAME"
 else
-    echo "No Files to archive"
+    echo "No Files to archive  $Y SKIPPING.. $N"
 fi
 
