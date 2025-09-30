@@ -42,7 +42,7 @@ USAGE(){
             exit 1
         fi
 
-FILES=$(find /home/ec2-user/app-logs/ -name "*.log" -type f -mtime +14)
+FILES=$(find /home/ec2-user/app-logs/ -name '*.log' -type f -mtime +$DAYS)
 
 
 if [ ! -z "${FILES}" ]; then
