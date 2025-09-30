@@ -45,7 +45,7 @@ USAGE(){
 FILES=$(find /home/ec2-user/app-logs/ -name "*.log" -type f -mtime +14)
 
 
-if [! -z ${FILES} ]; then
+if [ ! -z ${FILES} ]; then
     echo "Files found"
 else
     echo "No Files to archive"
