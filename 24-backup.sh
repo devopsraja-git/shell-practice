@@ -10,6 +10,7 @@ uid=$(id -u)
 
 SOURCE_DIR=$1
 DEST_DIR=$2
+DAYS={$3 -14}
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
@@ -27,16 +28,26 @@ USAGE(){
     exit 1
 }
 
-if [ $# -lt 2 ]; then
-    USAGE
+    if [ $# -lt 2 ]; then
+        USAGE
+    fi
+
+        if [ ! -d $SOURCE_DIR ]; then
+            echo -e "$R Source $SOURCE_DIR doesnot exist $N"
+            exit 1
+        fi
+
+        if [ ! -d $DEST_DIR ]; then
+            echo -e "$R Destination $DEST_DIR doesnot exist $N"
+            exit 1
+        fi
+
+FILES=$(find /home/ec2-user/app-logs/ -name "*.log" -type f -mtime +14)
+
+
+if [! -z ${FILES} ]; then
+    echo "Files found"
+else
+    echo "No Files to archive"
 fi
 
-if [ ! -d $SOURCE_DIR ]; then
-    echo -e "$R Source $SOURCE_DIR doesnot exist $N"
-    exit 1
-fi
-
-if [ ! -d $DEST_DIR ]; then
-    echo -e "$R Destination $DEST_DIR doesnot exist $N"
-    exit 1
-fi
