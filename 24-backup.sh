@@ -52,6 +52,6 @@ if [ ! -z ${FILES} ]; then
     echo "Zip file name: $ZIP_FILE_NAME"
     echo $FILES | zip  -@ -j "$ZIP_FILE_NAME"
 else
-    echo "No Files to archive  $Y SKIPPING.. $N"
+    echo -e "No Files to archive  $Y SKIPPING.. $N"
 fi
 
