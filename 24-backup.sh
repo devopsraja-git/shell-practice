@@ -45,7 +45,7 @@ USAGE(){
 FILES=$(find /home/ec2-user/app-logs/ -name "*.log" -type f -mtime +14)
 
 
-if [ ! -z ${FILES} ]; then
+if [ ! -z $FILES ]; then
     echo "Files found $FILES"
     TIME_STAMP=$(date +%F)
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIME_STAMP.zip"
