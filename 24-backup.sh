@@ -8,7 +8,8 @@ N="\e[0m"
 
 uid=$(id -u)
 
-
+SOURCE_DIR=$1
+DEST_DIR=$2
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
@@ -22,10 +23,20 @@ if [ $uid -ne 0 ]; then
 fi
 
 USAGE(){
-    echo -e "$R USAGE:: sudo sh 24-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS>[optional, default 14 days $N]"
+    echo -e "$R USAGE:: sudo sh 24-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS>[optional, default 14 days$N]"
     exit 1
 }
 
 if [ $# -lt 2 ]; then
     USAGE
+fi
+
+if [ ! -d $SOURCE_DIR ]; then
+    echo "$R Source $SOURCE_DIR doesnot exist $N"
+    exit 1
+fi
+
+if [ ! -d $DEST_DIR ]; then
+    echo "$R Source $DEST_DIR doesnot exist $N"
+    exit 1
 fi
